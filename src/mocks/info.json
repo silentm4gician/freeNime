@@ -1,0 +1,103 @@
+    {
+        "id": "clfrvulue01wrkslu6oyseknq",
+        "title": "Land of the Lustrous",
+        "anilistId": 98707,
+        "malId": 35557,
+        "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98707-iGdx1gFXQs01.png",
+        "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/98707-ZcFGfUAS4YwK.jpg",
+        "season": "FALL",
+        "releaseDate": 2017,
+        "duration": 24,
+        "popularity": 104450,
+        "description": "In the mysterious future, crystalline organisms called Gems inhabit a world that has been destroyed by six meteors. Each Gem is assigned a role in order to fight against the Lunarians, a species who attacks them in order to shatter their bodies and use them as decorations.<br>\n<br>\nPhosphophyllite, also known as Phos, is a young and fragile Gem who dreams of helping their friends in the war effort. Instead, they are told to compile an encyclopedia because of their delicate condition. After begrudgingly embarking on this task, Phos meets Cinnabar, an intelligent gem who has been relegated to patrolling the isolated island at night because of the corrosive poison their body creates. After seeing how unhappy Cinnabar is, Phos decides to find a role that both of the rejected Gems can enjoy. Houseki no Kuni follows Phos' efforts to be useful and protect their fellow Gems.",
+        "genres": [
+        "Drama",
+        "Psychological",
+        "Action",
+        "Fantasy",
+        "Mystery"
+        ],
+        "rating": 83,
+        "status": "FINISHED",
+        "synonyms": [
+        "L'Ère des Cristaux",
+        "Das Land der Juwelen",
+        "Страна самоцветов",
+        "Vương Quốc Bảo Thạch",
+        "ดินแดนอัญมณี"
+        ],
+        "mappings": {
+        "mal": 35557,
+        "anidb": 13165,
+        "kitsu": 13521,
+        "anilist": 98707,
+        "thetvdb": 331787,
+        "anisearch": 12451,
+        "livechart": 2697,
+        "notify.moe": "WLWV2Kimg",
+        "anime-planet": "land-of-the-lustrous"
+        },
+        "type": "TV",
+        "episodes": [
+        {
+            "id": "clg6z5ti9006lpkkmke6uwvb3",
+            "number": 12,
+            "title": "New Work"
+        },
+        {
+            "id": "clg6z5tii006mpkkmwpuxhmka",
+            "number": 11,
+            "title": "Secrets"
+        },
+        {
+            "id": "clg6z5tis006npkkmcimcmo9o",
+            "number": 10,
+            "title": "Shiro"
+        },
+        {
+            "id": "clg6z5tj1006opkkmnt9fosua",
+            "number": 9,
+            "title": "Spring"
+        },
+        {
+            "id": "clg6z5tja006qpkkmdw5uyf4i",
+            "number": 8,
+            "title": "Antarcticite"
+        },
+        {
+            "id": "clg6z5tjj006rpkkm6cm11ncv",
+            "number": 7,
+            "title": "Hibernation"
+        },
+        {
+            "id": "clg6z5tjr006tpkkmpmgd0zuu",
+            "number": 6,
+            "title": "First Battle"
+        },
+        {
+            "id": "clg6z5tjz006vpkkm8pqqbflc",
+            "number": 5,
+            "title": "Return"
+        },
+        {
+            "id": "clg6z5tk6006xpkkm5m2h47l1",
+            "number": 4,
+            "title": "Soul - Flesh - Bone"
+        },
+        {
+            "id": "clg6z5tkf006ypkkmt54l3icl",
+            "number": 3,
+            "title": "Metamorphose"
+        },
+        {
+            "id": "clg6z5tkm0070pkkmjbwa1gsl",
+            "number": 2,
+            "title": "Diamond"
+        },
+        {
+            "id": "clg6z5tks0072pkkmeb2sl7jb",
+            "number": 1,
+            "title": "Phosphophyllite"
+        }
+        ]
+    }

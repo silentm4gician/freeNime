@@ -1,0 +1,19 @@
+.box
+{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, 250px);
+    
+    grid-auto-rows: auto;
+    
+    grid-gap: 1rem;
+}
+
+.card
+{
+    border: 2px solid #e7e7e7;
+
+    border-radius: 4px;
+
+    padding: .5rem;
+}

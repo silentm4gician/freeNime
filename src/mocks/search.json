@@ -1,0 +1,97 @@
+    {
+        "currentPage": 1,
+        "hasNextPage": true,
+        "results": [
+        {
+            "id": "clfrvd1ok00ebksluclfo72ru",
+            "anilistId": 125038,
+            "malId": 43439,
+            "title": "SHADOWS HOUSE",
+            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx125038-EDYVfZUMnCBg.png",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/125038-Gy0IC8sqR8e4.jpg",
+            "releaseDate": 2021,
+            "description": "High atop a cliff sits the mansion known as Shadows House, home to a faceless clan that pretends to live like nobles. They express their emotions through living dolls that also endlessly clean the home of soot. One such servant, Emilico, aids her master Kate as they learn more about themselves and the mysteries of the house.<br><br>(Source: Funimation)",
+            "genres": [
+            "Slice of Life",
+            "Fantasy",
+            "Horror",
+            "Supernatural",
+            "Mystery"
+            ],
+            "rating": 76,
+            "status": "FINISHED",
+            "mappings": {
+            "mal": 43439,
+            "anidb": 15779,
+            "kitsu": 43820,
+            "anilist": 125038,
+            "thetvdb": 396876,
+            "anisearch": 15664,
+            "livechart": 10182,
+            "notify.moe": "zyB51r5MR",
+            "anime-planet": "shadows-house"
+            },
+            "type": "TV"
+        },
+        {
+            "id": "clfrvulue01wrkslu6oyseknq",
+            "anilistId": 98707,
+            "malId": 35557,
+            "title": "Land of the Lustrous",
+            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98707-iGdx1gFXQs01.png",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/98707-ZcFGfUAS4YwK.jpg",
+            "releaseDate": 2017,
+            "description": "In the mysterious future, crystalline organisms called Gems inhabit a world that has been destroyed by six meteors. Each Gem is assigned a role in order to fight against the Lunarians, a species who attacks them in order to shatter their bodies and use them as decorations.<br>\n<br>\nPhosphophyllite, also known as Phos, is a young and fragile Gem who dreams of helping their friends in the war effort. Instead, they are told to compile an encyclopedia because of their delicate condition. After begrudgingly embarking on this task, Phos meets Cinnabar, an intelligent gem who has been relegated to patrolling the isolated island at night because of the corrosive poison their body creates. After seeing how unhappy Cinnabar is, Phos decides to find a role that both of the rejected Gems can enjoy. Houseki no Kuni follows Phos' efforts to be useful and protect their fellow Gems.",
+            "genres": [
+            "Drama",
+            "Psychological",
+            "Action",
+            "Fantasy",
+            "Mystery"
+            ],
+            "rating": 83,
+            "status": "FINISHED",
+            "mappings": {
+            "mal": 35557,
+            "anidb": 13165,
+            "kitsu": 13521,
+            "anilist": 98707,
+            "thetvdb": 331787,
+            "anisearch": 12451,
+            "livechart": 2697,
+            "notify.moe": "WLWV2Kimg",
+            "anime-planet": "land-of-the-lustrous"
+            },
+            "type": "TV"
+        },
+        {
+            "id": "clfrvfcfs00ndkslu12av5ib6",
+            "anilistId": 111951,
+            "malId": 40230,
+            "title": "The Case Files of Jeweler Richard",
+            "image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx111951-vzX8hv9fl9pR.png",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/111951-aSghPZlHU0yS.jpg",
+            "releaseDate": 2020,
+            "description": "The 'heartwarming jewel mystery' series centers on the handsome jewelry appraiser Richard Ranashinha de Vulpian and the bright and cheerful college student Seigi Nakata as they uncover the hidden messages that lie within jewels while they solve various jewel-related cases by unravelling the hidden psychological aspects of their owners that lie within the gems.\n<br><br>\n(Source: Anime News Network, Edited)",
+            "genres": [
+            "Drama",
+            "Slice of Life",
+            "Mystery"
+            ],
+            "rating": 68,
+            "status": "FINISHED",
+            "mappings": {
+            "mal": 40230,
+            "anidb": 15038,
+            "kitsu": 42488,
+            "anilist": 111951,
+            "thetvdb": 373276,
+            "anisearch": 14552,
+            "livechart": 9560,
+            "notify.moe": "MftGVrAZg",
+            "anime-planet": "the-case-files-of-jeweler-richard"
+            },
+            "type": "TV"
+        }
+        ]
+    }

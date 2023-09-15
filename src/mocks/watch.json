@@ -1,0 +1,32 @@
+    {
+        "headers": {
+        "Referer": "https://goone.pro/streaming.php?id=MTAyODQx&title=Houseki+no+Kuni+%28TV%29+Episode+10"
+        },
+        "sources": [
+        {
+            "url": "https://www002.vipanicdn.net/streamhls/49720c3eef33ce55315baff73b55dfe7/ep.10.1677613348.360.m3u8",
+            "isM3U8": true,
+            "quality": "360p"
+        },
+        {
+            "url": "https://www002.vipanicdn.net/streamhls/49720c3eef33ce55315baff73b55dfe7/ep.10.1677613348.480.m3u8",
+            "isM3U8": true,
+            "quality": "480p"
+        },
+        {
+            "url": "https://www002.vipanicdn.net/streamhls/49720c3eef33ce55315baff73b55dfe7/ep.10.1677613348.720.m3u8",
+            "isM3U8": true,
+            "quality": "720p"
+        },
+        {
+            "url": "https://www002.vipanicdn.net/streamhls/49720c3eef33ce55315baff73b55dfe7/ep.10.1677613348.1080.m3u8",
+            "isM3U8": true,
+            "quality": "1080p"
+        },
+        {
+            "url": "https://www002.vipanicdn.net/streamhls/49720c3eef33ce55315baff73b55dfe7/ep.10.1677613348.m3u8",
+            "isM3U8": true,
+            "quality": "default"
+        }
+        ]
+    }
