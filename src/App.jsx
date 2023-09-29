@@ -1,6 +1,7 @@
 import './App.css'
 import Card from './components/Card'
 import { useState } from "react"
+import MainPage from './components/MainPage'
 
 function App()
 {
@@ -18,7 +19,7 @@ function App()
           <button type='submit'>search</button>
         </form>
       </header>
-      <Card/>
+      <MainPage/>
     </>
   )
 }

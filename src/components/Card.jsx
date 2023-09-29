@@ -1,22 +1,18 @@
 import { useNavigate } from 'react-router-dom'
-import results from '../mocks/search.json'
 
-const Card = () =>
+const Card = ({anime, isRecent}) =>
 {
     const navigate = useNavigate()
+
     return (
-        <main>
+    <main>
         <div className='box'>
-        {
-            results.results.map(result => 
-            <div key={result.id} className='card'>
-                <h1>{result.title}</h1>
-                <p>{result.releaseDate}</p>
-                <img src={result.image} alt={result.title}/>
-                <p>{result.genres + ' '}</p>
-                <button onClick={()=>navigate("/info")}>watch</button>
-            </div>)
-        }
+            <div key={anime.id} className='card'>
+                <h1>{anime.title}</h1>
+                <img src={anime.image} alt={anime.title}/>
+                <h4>EPISODE N°{anime.episodeNumber}</h4>
+                <button onClick={()=>navigate("/watch/"+anime.episodeId)}>watch</button>
+            </div>
         </div>
     </main>
     )

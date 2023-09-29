@@ -11,8 +11,8 @@ const Router = () => {
             <NavBar/>
             <Routes>
                 <Route path="/" element={<App/>}></Route>
-                <Route path="/info" element={<AnimeInfo/>}/>
-                <Route path="/watch" element={<Watch/>}/>
+                <Route path="/info/:id" element={<AnimeInfo/>}/>
+                <Route path="/watch/:epID" element={<Watch/>}/>
                 <Route path="*" element={<Err></Err>}/>
             </Routes>
         </>
