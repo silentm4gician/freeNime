@@ -1,22 +1,26 @@
+.box-out
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
 .box
 {
     display: grid;
-
     grid-template-columns: repeat(auto-fill, 250px);
-    
     grid-auto-rows: auto;
-    
     grid-gap: 1rem;
+    justify-content: center;
 }
 
 .card
 {
     border: 3px solid #007c9b82;
-
     border-radius: 6px;
-
     padding: .7rem;
-
     text-align: center;
 }
 
@@ -30,9 +34,60 @@ header input
     float: left;
 }
 
+.video
+{
+    border: #007c9b82 solid 5px;
+    padding: 8px;
+    border-radius: 7px;
+}
+
 .videoBox
 {
-    margin: 5px;
-    padding: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBox
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a
+{
+    text-decoration: none;
+    padding: 5px;
+    color: #ffffff;
+    border: solid 2px #007c9b82;
+    margin-bottom: 7px;
+    border-radius: 7px;
+    margin: 2px;
+}
+
+.nav a:hover {border: 2px solid #ffffff8f;}
+
+.search
+{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.caption
+{
+    text-align: center;
+    margin-top: 40px
+}
+.underVid
+{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+h2
+{
     text-align: center;
 }
