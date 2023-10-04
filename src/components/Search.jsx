@@ -11,12 +11,13 @@ const Search = () =>
     {
         e.preventDefault()
         navigate('/results/'+search)
+        window.location.reload()
     }
 
     return (
         <header className="search">
             <form onSubmit={find}>
-                <input type="text" onChange={(e)=>setSearch(e.target.value)}/>
+                <input required type="text" onChange={(e)=>setSearch(e.target.value)}/>
                 <button type='submit'>search</button>
             </form>
         </header>

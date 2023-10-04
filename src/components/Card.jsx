@@ -3,19 +3,33 @@ import { useNavigate } from 'react-router-dom'
 const Card = ({anime, isRecent}) =>
 {
     const navigate = useNavigate()
+    
+    const watch =(e)=>
+    {
+        localStorage.removeItem('watching')
+        localStorage.setItem('watching',e.target.value)
+        navigate("/watch/"+anime.episodeId)
+    }
+
+    const info =(e)=>
+    {
+        localStorage.removeItem('watching')
+        localStorage.setItem('watching',e.target.value)
+        navigate("/info/"+anime.id)
+    }
 
     return (
     <main className='box-out'>
         {
             isRecent
                 ?
-                <div className='box'>
-                    <div key={anime.id} className='card'>
+                <div className='boxRecents'>
+                    <div key={anime.id} className='cardRecents'>
                         <h1>{anime.title}</h1>
                         <img src={anime.image} alt={anime.title}/>
-                        <h4>EPISODE N°{anime.episodeNumber}</h4>
+                        <h4>EPISODE {anime.episodeNumber}</h4>
                         <footer>
-                            <button onClick={()=>navigate("/watch/"+anime.episodeId)}>watch</button>
+                            <button value={anime.id} onClick={watch}>watch</button>
                         </footer>
                     </div>
                 </div>
@@ -27,7 +41,7 @@ const Card = ({anime, isRecent}) =>
                         <h4>{anime.releaseDate}</h4>
                         <p>{anime.subOrDub}</p>
                         <footer>
-                            <button onClick={()=>navigate("/info/"+anime.id)}>info</button>
+                            <button value={anime.id} onClick={info}>info</button>
                         </footer>
                     </div>
                 </div>

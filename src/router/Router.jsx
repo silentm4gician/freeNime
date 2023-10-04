@@ -5,6 +5,7 @@ import NavBar from "./NavBar"
 import Err from "../components/Err"
 import Watch from "../components/Watch"
 import Results from "../components/Results"
+import Footer from "../components/Footer"
 
 const Router = () => {
     return (
@@ -17,6 +18,7 @@ const Router = () => {
                 <Route path="/watch/:epID" element={<Watch/>}/>
                 <Route path="*" element={<Err></Err>}/>
             </Routes>
+            <Footer/>
         </>
     )
 }

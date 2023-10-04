@@ -12,10 +12,9 @@ const Provider = ({children}) =>
             value={
                 {
                     baseURL,
-                    list,
-                    setList,
-                    search,
-                    setSearch
+                    list,setList,
+                    search,setSearch,
+
                 }}
         >
             {children}
