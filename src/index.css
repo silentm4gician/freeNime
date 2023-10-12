@@ -163,3 +163,5 @@ h2
     padding: .7rem;
     text-align: center;
 }
+
+.cardRecents:hover{border: 3px solid #ffffff8f;}
