@@ -1,9 +1,9 @@
 import useFetch from "../hooks/useFetch"
-import Card from "./Card"
 import { useParams } from "react-router-dom"
-import Search from "./Search"
 import useLoad from "../hooks/useLoad"
 import Loading from "./Loading"
+import CardData from "./CardData"
+import { Alert, Container, Row } from "react-bootstrap"
 
 const Results = () => 
 {
@@ -12,14 +12,17 @@ const Results = () =>
     const loading = useLoad()
 
     return (
-        <main>
+        <Container className="p-4">
+            <Container className="d-flex justify-content-center">
+                <Alert variant='dark' className='alerta text-center mt-5' style={{width:'400px'}}>
+                        Results for "{search}"
+                </Alert>
+            </Container>
             {loading && <Loading/>}
-            <Search/>
-            <h2>RESULTS FOR "{search}"</h2>
-            <div className="box">
-                {results?.results.map(obj=><Card className='card' key={obj.id} anime={obj} isRecent={false}/>)}
-            </div>
-        </main>
+            <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-3">
+                {results?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent={false}/>)}
+            </Row>
+        </Container>
     )
 }
 

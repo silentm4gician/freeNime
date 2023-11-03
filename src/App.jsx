@@ -1,15 +1,14 @@
 import './App.css'
+import { Container } from 'react-bootstrap'
 import MainPage from './components/MainPage'
-import Search from './components/Search'
 
 function App()
 {
 
   return (
-    <>
-      <Search/>
+    <Container>
       <MainPage/>
-    </>
+    </Container>
   )
 }
 

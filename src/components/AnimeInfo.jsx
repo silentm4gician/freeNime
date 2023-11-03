@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
-import Search from './Search'
 import Loading from './Loading'
 import useLoad from '../hooks/useLoad'
+import { Button, Card, Container, ListGroup } from 'react-bootstrap'
 
 const AnimeInfo = () => 
 {
@@ -12,28 +12,29 @@ const AnimeInfo = () =>
   const loading = useLoad()
 
   return (
-    <>
+    <Container className='mt-2' style={{maxWidth:'750px'}}>
     {loading && <Loading/>}
-      <Search/>
-      <main className='i-container'>
-        <div className='info'>
-          <div className='desc'>
-            <h3>{anime?.title} ({anime?.releaseDate})</h3>
-            <img src={anime?.image} alt={anime?.title}/>
-            <h6>{anime?.genres.map(gen=><p className='genres' key={gen}>{gen+' '}</p>)}</h6>
-            <h5>{anime?.type} - {anime?.status} - {anime?.totalEpisodes} Episodes</h5>
-            <p>{anime?.description}</p>
-          </div>
-          <div className='underInfo'>
-              <h4>EPISODES</h4>
-            <ul>
-              {anime?.episodes?.map(ep=>
-              <li key={ep.id}>Episode {ep.number} ➡️ <button onClick={()=>navigate('/watch/'+ep.id)}>watch now</button></li>)}
-            </ul>
-          </div>
-        </div>
-      </main>
-    </>
+      <br />
+      <Card text='light' className='p-2 mt-5 text-center' bg='dark' border="dark">
+        <Card.Header>{anime?.type} - {anime?.status} - {anime?.totalEpisodes} Episodes </Card.Header>
+        <Card.Body>
+          <Card.Title className='p-1'>{anime?.title}</Card.Title>
+          <Card.Img style={{maxWidth:'400px'}} src={anime?.image} alt={anime?.title}/>
+          <Card.Text className='p-3'>{anime?.description}</Card.Text>
+        </Card.Body>
+        <Card.Footer>Released in {anime?.releaseDate}</Card.Footer>
+      </Card>
+      <Card text='light' className='text-center bg-dark mt-2' bg='dark'>
+        <Card.Header className='mb-0'>Episodes</Card.Header>
+        <ListGroup className='p-5' variant='flush'>
+          {anime?.episodes?.map(ep=>
+              <ListGroup.Item className='list-group-item-dark' key={ep.id}>
+                Episode {ep.number} - <Button variant='light' onClick={()=>navigate('/watch/'+ep.id)}>Watch</Button>
+              </ListGroup.Item>)}
+        </ListGroup>
+      </Card>
+
+    </Container>
   )
 }
 

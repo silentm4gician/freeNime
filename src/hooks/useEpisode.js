@@ -17,6 +17,7 @@ export default function useEpisode (epID)
 
     const anime = useFetch('info/'+localStorage.getItem('watching'))
     const episodes = anime?.totalEpisodes
+    const download = list?.download
 
-    return {prev,next,episodes,ep}
+    return {prev,next,episodes,ep,download}
 }

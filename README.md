@@ -1,8 +1,12 @@
-# React + Vite
+# freeNime
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### WebSite
+[Check the site](https://freenime.netlify.app/ "freeNime")
 
-Currently, two official plugins are available:
+## ToDo
+- Add user authentication
+- Filter and order episodes
+- Add toWatch list
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Contact
+leandroGonzalezMat@gmail.com

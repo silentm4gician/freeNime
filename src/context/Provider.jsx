@@ -14,7 +14,6 @@ const Provider = ({children}) =>
                     baseURL,
                     list,setList,
                     search,setSearch,
-
                 }}
         >
             {children}
