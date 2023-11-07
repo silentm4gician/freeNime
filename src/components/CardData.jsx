@@ -1,21 +1,28 @@
+import { useId } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 const CardData = ({anime, isRecent}) =>
 {
     const navigate = useNavigate()
+    const ID = useId()
     
-    const watch =(e)=>
+    const watch =()=>
     {
+
+        const target = document.getElementById(ID)
+        
         localStorage.removeItem('watching')
-        localStorage.setItem('watching',e.target.value)
+        localStorage.setItem('watching',target.childNodes[1].childNodes[0].value)
         navigate("/watch/"+anime.episodeId)
     }
 
-    const info =(e)=>
+    const info =()=>
     {
+        const target = document.getElementById(ID)
+
         localStorage.removeItem('watching')
-        localStorage.setItem('watching',e.target.value)
+        localStorage.setItem('watching',target.childNodes[1].childNodes[0].value)
         navigate("/info/"+anime.id)
     }
 
@@ -25,10 +32,10 @@ const CardData = ({anime, isRecent}) =>
             isRecent
                 ?
                     <Col>
-                        <Card bg='dark' className='h-100 p-2' border="dark" style={{minWidth:'110px'}}>
+                        <Card id={ID} onClick={watch} bg='dark' className='h-100 p-2 cards rare-wind-gradient' border="dark" style={{minWidth:'110px'}}>
                             <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
                             <Card.ImgOverlay>
-                                <Button value={anime.id} onClick={watch} variant='warning'>Episode {anime.episodeNumber}</Button>
+                                <Button value={anime.id} variant='warning'>{anime.episodeNumber}</Button>
                             </Card.ImgOverlay>
                             <Card.Footer>
                                 <Card.Title className='text-center text-truncate text-light'>{anime.title}</Card.Title>
@@ -38,13 +45,13 @@ const CardData = ({anime, isRecent}) =>
                 :
 
                     <Col>
-                        <Card bg='dark' className='h-100 p-2' border="dark" style={{minWidth:'110px'}}>
+                        <Card id={ID} onClick={info} bg='dark' className='cards h-100 p-2' border="dark" style={{minWidth:'110px'}}>
                             <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
-                            <Card.ImgOverlay><Button value={anime.id} onClick={info} variant='warning'>More Info</Button></Card.ImgOverlay>
+                            <Card.ImgOverlay><Button value={anime.id} variant='warning'>{anime.subOrDub}</Button></Card.ImgOverlay>
                             <Card.Footer>
                                 <Card.Title className='text-center text-white'>{anime.title}</Card.Title>
-                                <Card.Text className='text-white'>
-                                    {anime.releaseDate} - {anime.subOrDub}
+                                <Card.Text className='text-white text-center'>
+                                    {anime.releaseDate}
                                 </Card.Text>
                             </Card.Footer>
                         </Card>

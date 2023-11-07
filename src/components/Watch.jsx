@@ -48,7 +48,7 @@ const Watch = () =>
             <br />
             <Card className='mt-5 text-center' bg='dark' text='light'>
                 <Card.Header>{epID.toUpperCase()}</Card.Header>
-                <Card.Body className=''>
+                <Card.Body>
                     <ReactPlayer 
                     className = 'video'
                     url={episode.ep?.url}

@@ -33,16 +33,16 @@ const NavBar = () =>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="https://www.paypal.com/donate/?hosted_button_id=LDLVEZSUYSDSJ">Donate</Nav.Link>
           </Nav>
-          <Form onSubmit={find} className="d-flex justify-content-center">
+          <Form onSubmit={find} className="d-flex">
             <Form.Control
               type="search"
               placeholder="One piece"
-              className="me-2"
+              className="m-1"
               aria-label="Search"
               required
               onChange={(e)=>setSearch(e.target.value)}
             />
-            <Button type="submit" variant="light" className="my-1 p-1">Search</Button>
+            <Button type="submit" variant="light" className="m-1">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
