@@ -42,8 +42,6 @@ const Watch = () =>
     return (
         <Container style={{maxWidth:'1000px'}}>
             {verify()}
-            {console.log(episode.prev)}
-            {console.log(episode.next)}
         {loading && <Loading/>}
             <br />
             <Card className='mt-5 text-center' bg='dark' text='light'>
@@ -54,14 +52,14 @@ const Watch = () =>
                     url={episode.ep?.url}
                     playing
                     controls={true}
-                    volume={0.25}
+                    volume={0.50}
                     pip
                     width={'100%'}
                     ></ReactPlayer>
                 </Card.Body>
                 <Card.Footer className=''>
                     <ButtonGroup>
-                        <Button variant='light' style={episode.prev.includes('0' && episode.next.includes('2'))?{display:'none'}:null} onClick={prev}>Previous</Button>
+                        <Button variant='light' style={episode.prev.includes('episode-0')?{display:'none'}:null} onClick={prev}>Previous</Button>
                         <DropdownButton variant='light' as={ButtonGroup} title='More' id="bg-nested-dropdown" className='rounded'>
                             <DropdownItem onClick={info} eventKey='1'>Anime Info</DropdownItem>
                             <DropdownItem onClick={download} eventKey='2'>Download Episode</DropdownItem>

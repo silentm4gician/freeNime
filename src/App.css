@@ -3,6 +3,19 @@ body
   background-color: #2c3440 !important;
 }
 
+.btnEP
+{
+  background-color: rgba(255, 255, 255, 0.919) !important;
+  border: 1px solid rgb(255, 255, 255) !important;
+  color: #000000 !important;
+}
+
+.btnEP:hover
+{
+  background-color: #ffc107 !important;
+  border: 1px solid black !important;
+}
+
 .recents
 {
   text-align: center;
@@ -19,7 +32,7 @@ body
 .cards:hover
 {
   cursor: pointer;
-  transform: scale(1.03);
+  transform: scale(1.02);
   box-shadow: 1px 1px 1px 1px rgba(152, 152, 152, 0.316);
 }
 
@@ -46,6 +59,11 @@ body
     margin-top: 30px;
     margin-bottom: 30px;
     color: aliceblue;
+}
+
+.contact:hover
+{
+  color: rgba(210, 210, 210, 0.746) !important;
 }
 
 .alerta

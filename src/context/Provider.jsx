@@ -6,6 +6,7 @@ const Provider = ({children}) =>
     const baseURL = 'https://api.consumet.org/anime/gogoanime/'
     const [list,setList] = useState()
     const [search,setSearch] = useState()
+    const [endIndex,setEndIndex] = useState(30)
 
     return (
         <Context.Provider
@@ -14,6 +15,7 @@ const Provider = ({children}) =>
                     baseURL,
                     list,setList,
                     search,setSearch,
+                    endIndex,setEndIndex
                 }}
         >
             {children}
