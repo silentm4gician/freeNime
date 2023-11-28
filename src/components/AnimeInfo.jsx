@@ -9,7 +9,7 @@ import Context from '../context/Context'
 const AnimeInfo = () => 
 {
   const {id} = useParams()
-  const anime = useFetch('info/'+id)
+  const anime = useFetch('anime/gogoanime/info/'+id)
   const navigate = useNavigate()
   const loading = useLoad()
   const {endIndex,setEndIndex} = useContext(Context)

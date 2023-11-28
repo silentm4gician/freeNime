@@ -8,7 +8,8 @@ import { Alert, Container, Row } from "react-bootstrap"
 const Results = () => 
 {
     const {search} = useParams()
-    const results = useFetch(search)
+    const prefix = 'anime/gogoanime/'
+    const results = useFetch(prefix+search)
     const loading = useLoad()
 
     return (

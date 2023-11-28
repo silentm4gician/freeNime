@@ -8,7 +8,7 @@ const MainPage = () =>
 {
 
     const loading = useLoad()
-    const link = 'recent-episodes'
+    const link = 'anime/gogoanime/recent-episodes'
     const list = useFetch(link)
 
     return (

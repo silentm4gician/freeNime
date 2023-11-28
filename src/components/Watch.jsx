@@ -7,8 +7,9 @@ import { Alert, Button, ButtonGroup, Card, Container, DropdownButton, DropdownIt
 
 const Watch = () =>
 {
+    const prefix = 'anime/gogoanime/watch/'
     const {epID} = useParams()
-    const episode = useEpisode(epID)
+    const episode = useEpisode(epID,prefix)
     const loading = useLoad()
     const navigate = useNavigate()
 
@@ -52,7 +53,7 @@ const Watch = () =>
                     url={episode.ep?.url}
                     playing
                     controls={true}
-                    volume={0.50}
+                    volume={0.70}
                     pip
                     width={'100%'}
                     ></ReactPlayer>

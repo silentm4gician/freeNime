@@ -1,8 +1,8 @@
 import useFetch from "./useFetch"
 
-export default function useEpisode (epID)
+export default function useEpisode (epID,prefix)
 {
-    const link = 'watch/'+epID
+    const link = prefix+epID
     const list = useFetch(link)
     const ep = list?.sources.find(obj=>obj.quality.includes('default'))
 
@@ -15,7 +15,7 @@ export default function useEpisode (epID)
     const nextEp = Number(findEp)+1
     const next = epID.replace(epID,localStorage.getItem('watching')+'-episode-'+nextEp)
 
-    const anime = useFetch('info/'+localStorage.getItem('watching'))
+    const anime = useFetch('anime/gogoanime/info/'+localStorage.getItem('watching'))
     const episodes = anime?.totalEpisodes
     const download = list?.download
 
