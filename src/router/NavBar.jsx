@@ -31,6 +31,7 @@ const NavBar = () =>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=leandroGonzalezMat@gmail.com" target="_blank">Contact</Nav.Link>
             <Nav.Link href="https://www.paypal.com/donate/?hosted_button_id=LDLVEZSUYSDSJ">Donate</Nav.Link>
           </Nav>
           <Form onSubmit={find} className="d-flex">

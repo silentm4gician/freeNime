@@ -1,5 +1,6 @@
 import { Image, Spinner } from 'react-bootstrap'
-const Loading = () => {
+const Loading = () =>
+{
     return (
         <>
         <div className="loading-screen">

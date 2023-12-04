@@ -1,15 +1,12 @@
 import useFetch from "../hooks/useFetch"
-import useLoad from '../hooks/useLoad'
 import Loading from "./Loading"
 import CardData from "./CardData"
 import { Alert, Container, Row } from "react-bootstrap"
 
 const MainPage = () => 
 {
-
-    const loading = useLoad()
     const link = 'anime/gogoanime/recent-episodes'
-    const list = useFetch(link)
+    const results = useFetch(link)
 
     return (
         <Container className="p-4">
@@ -19,9 +16,9 @@ const MainPage = () =>
                 <hr style={{color:'white',maxWidth:'500px'}}/>
             </Container>
 
-            {loading && <Loading/>}
+            {results==undefined && <Loading/>}
             <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-3">
-                {list?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent={true}/>)}
+                {results?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent={true}/>)}
             </Row>
         </Container>
     )

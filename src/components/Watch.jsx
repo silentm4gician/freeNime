@@ -2,7 +2,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useEpisode from '../hooks/useEpisode'
 import ReactPlayer from 'react-player'
 import Loading from './Loading'
-import useLoad from '../hooks/useLoad'
 import { Alert, Button, ButtonGroup, Card, Container, DropdownButton, DropdownItem } from 'react-bootstrap'
 
 const Watch = () =>
@@ -10,7 +9,6 @@ const Watch = () =>
     const prefix = 'anime/gogoanime/watch/'
     const {epID} = useParams()
     const episode = useEpisode(epID,prefix)
-    const loading = useLoad()
     const navigate = useNavigate()
 
     const prev =()=>
@@ -43,7 +41,7 @@ const Watch = () =>
     return (
         <Container style={{maxWidth:'1000px'}}>
             {verify()}
-        {loading && <Loading/>}
+        {episode.ep==undefined && <Loading/>}
             <br />
             <Card className='mt-5 text-center' bg='dark' text='light'>
                 <Card.Header>{epID.toUpperCase()}</Card.Header>
