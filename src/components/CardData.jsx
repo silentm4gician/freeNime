@@ -35,7 +35,7 @@ const CardData = ({anime, isRecent}) =>
                         <Card id={ID} onClick={watch} bg='dark' className='h-100 p-2 cards rare-wind-gradient' border="dark" style={{minWidth:'110px'}}>
                             <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
                             <Card.ImgOverlay>
-                                <Button value={anime.id} variant='warning'>{anime.episodeNumber}</Button>
+                                <Button className='epNumber' value={anime.id} variant='warning'>{anime.episodeNumber}</Button>
                             </Card.ImgOverlay>
                             <Card.Footer>
                                 <Card.Title className='text-center text-truncate text-light'>{anime.title}</Card.Title>
@@ -47,7 +47,7 @@ const CardData = ({anime, isRecent}) =>
                     <Col>
                         <Card id={ID} onClick={info} bg='dark' className='cards h-100 p-2' border="dark" style={{minWidth:'110px'}}>
                             <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
-                            <Card.ImgOverlay><Button value={anime.id} variant='warning'>{anime.subOrDub}</Button></Card.ImgOverlay>
+                            <Card.ImgOverlay><Button className='epNumber' value={anime.id} variant='warning'>{anime.subOrDub}</Button></Card.ImgOverlay>
                             <Card.Footer>
                                 <Card.Title className='text-center text-white'>{anime.title}</Card.Title>
                                 <Card.Text className='text-white text-center'>

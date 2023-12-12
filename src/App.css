@@ -1,6 +1,7 @@
 body
 {
   background-color: #2c3440 !important;
+  background-image: linear-gradient( #2c3440 , #4b0c38, #2c3440);
 }
 
 .btnEP
@@ -12,8 +13,16 @@ body
 
 .btnEP:hover
 {
-  background-color: #ffc107 !important;
-  border: 1px solid black !important;
+  background-color: #a91b7e !important;
+  border: 1px solid #4b0c38 !important;
+  color: whitesmoke !important;
+}
+
+.epNumber
+{
+  color: white !important;
+  background-color: #d61e9f !important;
+  border: #4b0c38 !important;
 }
 
 .recents
@@ -68,12 +77,15 @@ body
 
 .alerta
 {
-  background-color: rgb(33,37,41) !important;
   color: aliceblue !important;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: oblique;
-  font-size: x-large;
-  border: #2c3440 !important;
+  font-size:x-large;
+}
+
+.hrs
+{
+  color: whitesmoke;
 }
 
 ::-webkit-scrollbar

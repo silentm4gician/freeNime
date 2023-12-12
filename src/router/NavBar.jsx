@@ -43,7 +43,7 @@ const NavBar = () =>
               required
               onChange={(e)=>setSearch(e.target.value)}
             />
-            <Button type="submit" variant="light" className="m-1">Search</Button>
+            <Button type="submit" variant="light" className="m-1 d-flex"><img width={'18px'} src="/search.png" alt="search" className="mx-2 mt-1"/></Button>
           </Form>
         </Navbar.Collapse>
       </Container>

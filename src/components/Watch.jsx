@@ -54,12 +54,13 @@ const Watch = () =>
                     volume={0.70}
                     pip
                     width={'100%'}
+                    height={'450px'}
                     ></ReactPlayer>
                 </Card.Body>
                 <Card.Footer className=''>
                     <ButtonGroup>
                         <Button variant='light' style={episode.prev.includes('episode-0')?{display:'none'}:null} onClick={prev}>Previous</Button>
-                        <DropdownButton variant='light' as={ButtonGroup} title='More' id="bg-nested-dropdown" className='rounded'>
+                        <DropdownButton variant='light' as={ButtonGroup} title={<img width={'20px'} src='/list.png'></img>} id="bg-nested-dropdown" className='rounded'>
                             <DropdownItem onClick={info} eventKey='1'>Anime Info</DropdownItem>
                             <DropdownItem onClick={download} eventKey='2'>Download Episode</DropdownItem>
                         </DropdownButton>
