@@ -24,6 +24,7 @@ const CardData = ({anime, isRecent}) =>
         localStorage.removeItem('watching')
         localStorage.setItem('watching',target.childNodes[1].childNodes[0].value)
         navigate("/info/"+anime.id)
+        window.location.reload()
     }
 
     return (
@@ -38,7 +39,7 @@ const CardData = ({anime, isRecent}) =>
                                 <Button className='epNumber' value={anime.id} variant='warning'>{anime.episodeNumber}</Button>
                             </Card.ImgOverlay>
                             <Card.Footer>
-                                <Card.Title className='text-center text-truncate text-light'>{anime.title}</Card.Title>
+                                <Card.Title className='text-center fs-6 text-truncate text-light'>{anime.title}</Card.Title>
                             </Card.Footer>
                         </Card>
                     </Col>
@@ -49,7 +50,7 @@ const CardData = ({anime, isRecent}) =>
                             <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
                             <Card.ImgOverlay><Button className='epNumber' value={anime.id} variant='warning'>{anime.subOrDub}</Button></Card.ImgOverlay>
                             <Card.Footer>
-                                <Card.Title className='text-center text-white'>{anime.title}</Card.Title>
+                                <Card.Title className='text-center fs-6 text-truncate text-white '>{anime.title}</Card.Title>
                                 <Card.Text className='text-white text-center'>
                                     {anime.releaseDate}
                                 </Card.Text>
