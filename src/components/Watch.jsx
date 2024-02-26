@@ -59,12 +59,12 @@ const Watch = () =>
                 </Card.Body>
                 <Card.Footer className=''>
                     <ButtonGroup>
-                        <Button variant='light' style={episode.prev.includes('episode-0')?{display:'none'}:null} onClick={prev}>Previous</Button>
+                        <Button variant='light' style={episode.prev.includes('episode-0')?{display:'none'}:null} onClick={prev}>Prev EP</Button>
                         <DropdownButton variant='light' as={ButtonGroup} title={<img width={'20px'} src='/list.png'></img>} id="bg-nested-dropdown" className='rounded'>
-                            <DropdownItem onClick={info} eventKey='1'>Anime Info</DropdownItem>
+                            <DropdownItem onClick={info} eventKey='1'>Episode List</DropdownItem>
                             <DropdownItem onClick={download} eventKey='2'>Download Episode</DropdownItem>
                         </DropdownButton>
-                        <Button variant='light' style={episode.next.includes(episode.episodes + 1)?{display:'none'}:null} onClick={next}>Next</Button>
+                        <Button variant='light' style={episode.next.includes(episode.episodes + 1)?{display:'none'}:null} onClick={next}>Next EP</Button>
                     </ButtonGroup>
                 </Card.Footer>
             </Card>
