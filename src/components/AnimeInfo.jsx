@@ -9,9 +9,9 @@ import CardData from './CardData'
 const AnimeInfo = () => 
 {
   const {id} = useParams()
-  const anime = useFetch('anime/gogoanime/info/'+id)
+  const anime = useFetch('info/'+id)
   const name = id.length > 15 ? id.slice(0,10) : id
-  const similar = useFetch('anime/gogoanime/'+name)
+  const similar = useFetch(name)
   const similarResults = similar?.results.slice(1,5)
   const navigate = useNavigate()
   const {endIndex,setEndIndex} = useContext(Context)

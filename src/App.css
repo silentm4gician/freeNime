@@ -114,3 +114,20 @@ body
   align-items: center;
   z-index: 9999;
 }
+
+.genres
+{
+  text-decoration: none;
+  color: black;
+  background-color:white;
+  padding: 8px;
+  border-radius: 10%;
+  text-align: center;
+  margin: 2px;
+}
+
+.genres:hover
+{
+  color: white;
+  background-color:#d61e9f;
+}

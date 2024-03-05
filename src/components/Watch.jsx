@@ -6,9 +6,8 @@ import { Alert, Button, ButtonGroup, Card, Container, DropdownButton, DropdownIt
 
 const Watch = () =>
 {
-    const prefix = 'anime/gogoanime/watch/'
     const {epID} = useParams()
-    const episode = useEpisode(epID,prefix)
+    const episode = useEpisode(epID)
     const navigate = useNavigate()
 
     const prev =()=>

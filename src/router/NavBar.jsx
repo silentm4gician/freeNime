@@ -31,13 +31,14 @@ const NavBar = () =>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=leandroGonzalezMat@gmail.com" target="_blank">Contact</Nav.Link>
-            <Nav.Link href="https://www.paypal.com/donate/?hosted_button_id=LDLVEZSUYSDSJ">Donate</Nav.Link>
+            <Nav.Link href="/top">Top Airing</Nav.Link>
+            <Nav.Link href="/movies">Movies</Nav.Link>
+            <Nav.Link href="/genres">Genres</Nav.Link>
           </Nav>
           <Form onSubmit={find} className="d-flex">
             <Form.Control
               type="search"
-              placeholder="One piece"
+              placeholder="search"
               className="m-1"
               aria-label="Search"
               required

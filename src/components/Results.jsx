@@ -7,8 +7,7 @@ import { Container, Row } from "react-bootstrap"
 const Results = () => 
 {
     const {search} = useParams()
-    const prefix = 'anime/gogoanime/'
-    const results = useFetch(prefix+search)
+    const results = useFetch(search)
 
     return (
         <Container className="p-4">
