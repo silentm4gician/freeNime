@@ -1,11 +1,13 @@
 import { Container, Row } from "react-bootstrap"
 import Loading from "./Loading"
-import useFetch from "../hooks/useFetch"
 import CardData from "./CardData"
+import Pages from "./Pages"
+import usePages from "../hooks/usePages"
 
 const Movies = () => 
 {
-    const results = useFetch('movies')
+    const results = usePages('movies?page=')
+
     return (
         <Container className="p-4">
             <hr className='mx-5 mt-5 hrs'/>
@@ -15,8 +17,9 @@ const Movies = () =>
             <hr className='mx-5 hrs'/>
             {results==undefined && <Loading/>}
             <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-3">
-                {results?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent/>)}
+                {results?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent={false}/>)}
             </Row>
+            <Pages hasNext={results?.hasNextPage} page={results?.currentPage}/>
         </Container>
     )
 }

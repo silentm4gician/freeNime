@@ -1,12 +1,13 @@
-import useFetch from "../hooks/useFetch"
 import Loading from "./Loading"
 import CardData from "./CardData"
 import { Container, Row } from "react-bootstrap"
+import Pages from "./Pages"
+import usePages from "../hooks/usePages"
 
 const MainPage = () => 
 {
-    const results = useFetch('recent-episodes')
-
+    const results = usePages('recent-episodes?page=')
+    
     return (
         <Container className="p-4">
             <hr className='mx-5 mt-5 hrs'/>
@@ -18,6 +19,7 @@ const MainPage = () =>
             <Row xs={2} sm={2} md={3} lg={4} xl={5} className="g-3">
                 {results?.results.map(obj=><CardData key={obj.id} anime={obj} isRecent={true}/>)}
             </Row>
+            <Pages hasNext={results?.hasNextPage} page={results?.currentPage}/>
         </Container>
     )
 }

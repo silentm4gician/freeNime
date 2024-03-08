@@ -24,7 +24,7 @@ const Router = () => {
                 <Route path="/info/:id" element={<AnimeInfo/>}/>
                 <Route path="/watch/:epID" element={<Watch/>}/>
                 <Route path="/genres/:genreID" element={<Genre/>}/>
-                <Route path="*" element={<Err></Err>}/>
+                <Route path="/*" element={<Err></Err>}/>
             </Routes>
             <Footer/>
         </>
