@@ -14,6 +14,7 @@ this project was build using the [consumet-api](https://github.com/consumet/api.
 - Add user authentication
 - Filter and order episodes
 - Add toWatch list
+- migrate to NextJs with Tailwind
 
 ### Contact
 leandroGonzalezMat@gmail.com
