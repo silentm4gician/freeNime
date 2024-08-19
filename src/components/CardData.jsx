@@ -1,64 +1,45 @@
-import { useId } from 'react'
-import { Button, Card, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-const CardData = ({anime, isRecent}) =>
-{
+const CardData = ({ anime, isRecent }) => {
     const navigate = useNavigate()
-    const ID = useId()
-    
-    const watch =()=>
-    {
 
-        const target = document.getElementById(ID)
-        
+    const watch = () => {
         localStorage.removeItem('watching')
-        localStorage.setItem('watching',target.childNodes[1].childNodes[0].value)
-        navigate("/watch/"+anime.episodeId)
+        localStorage.setItem('watching', anime.id)
+        navigate(`watch/${anime.episodeId}`)
     }
 
-    const info =()=>
-    {
-        const target = document.getElementById(ID)
-
+    const info = () => {
         localStorage.removeItem('watching')
-        localStorage.setItem('watching',target.childNodes[1].childNodes[0].value)
-        navigate("/info/"+anime.id)
+        localStorage.setItem('watching', anime.id)
+        navigate(`/info/${anime.id}`)
         window.location.reload()
     }
 
     return (
         <>
-        {
-            isRecent
-                ?
-                    <Col>
-                        <Card id={ID} onClick={watch} bg='dark' className='h-100 p-2 cards rare-wind-gradient' border="dark" style={{minWidth:'110px'}}>
-                            <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
-                            <Card.ImgOverlay>
-                                <Button className='epNumber' value={anime.id} variant='warning'>{anime.episodeNumber}</Button>
-                            </Card.ImgOverlay>
-                            <Card.Footer>
-                                <Card.Title className='text-center fs-6 text-truncate text-light'>{anime.title}</Card.Title>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
-                :
+            {
+                isRecent
+                    ?
+                    <div className="max-w-md rounded-lg shadow-md shadow-purple-300 transition duration-200 hover:scale-105 relative isolate overflow-hidden rounded-xl px-8 pb-8 pt-40 hover:cursor-pointer" onClick={watch}>
+                        <img className="rounded-lg absolute inset-0 h-full w-full object-cover" src={anime.image} alt={anime.title} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20">
+                            <p className='absolute font-bold text-white mt-[55%] mx-[5%]'>{anime.title}</p>
+                            <h5 className='absolute font-bold text-black bg-purple-400 rounded-r p-1 italic'>{anime.episodeNumber}</h5>
+                        </div>
+                    </div>//
 
-                    <Col>
-                        <Card id={ID} onClick={info} bg='dark' className='cards h-100 p-2' border="dark" style={{minWidth:'110px'}}>
-                            <Card.Img width={'100px'} src={anime.image} alt={anime.title}/>
-                            <Card.ImgOverlay><Button className='epNumber' value={anime.id} variant='warning'>{anime.subOrDub || anime.released || anime.releaseDate || 'TOP'}</Button></Card.ImgOverlay>
-                            <Card.Footer>
-                                <Card.Title className='text-center fs-6 text-truncate text-white '>{anime.title}</Card.Title>
-                                <Card.Text className='text-white text-center'>
-                                    {anime.releaseDate}
-                                </Card.Text>
-                            </Card.Footer>
-                        </Card>
-                    </Col>
-        }
-    </>
+                    :
+
+                    <div className="max-w-md rounded-lg shadow-md shadow-purple-300 transition duration-200 hover:scale-105 relative isolate overflow-hidden rounded-xl px-8 pb-8 pt-40 hover:cursor-pointer" onClick={info}>
+                        <img className="rounded-lg absolute inset-0 h-full w-full object-cover" src={anime.image} alt={anime.title} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20">
+                            <p className='absolute font-bold text-white mt-[55%] mx-[5%]'>{anime.title}</p>
+                            <h5 className='absolute font-bold text-black bg-purple-400 rounded-r p-1 italic'>{anime.subOrDub || anime.released || anime.releaseDate || 'TOP'}</h5>
+                        </div>
+                    </div>
+            }
+        </>
     )
 }
 

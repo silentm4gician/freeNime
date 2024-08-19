@@ -1,25 +1,24 @@
-import { Container, Row } from "react-bootstrap"
 import useFetch from "../hooks/useFetch"
 import Loading from "./Loading"
+import { useNavigate } from "react-router-dom"
 
-const Genres = () => 
-{
+const Genres = () => {
     const list = useFetch('genre/list')
+    const navigate = useNavigate()
+
     return (
-        <Container className="p-4">
-            <hr className='mx-5 mt-5 hrs'/>
-            <Container className="d-flex justify-content-center">
-            <h3 className="mt-2 alerta">genre list</h3>
-            </Container>
-            <hr className='mx-5 hrs'/>
-            {list == undefined && <Loading/>}
-            <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-3">
-            {list?.map(gen => 
-            <div className="text-white" key={gen.id}>
-                ● <a className="genres" href={`/genres/${gen.id}`}>{gen.title}</a>
-            </div>)}
-            </Row>
-        </Container>
+        <>
+            {list == undefined && <Loading />}
+            <div className="container mt-20">
+                <h3 className="text-3xl italic bg-purple-400 p-2 rounded max-w-60 text-center shadow-md shadow-purple-300 text-black">genre list</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+                    {list?.map(genre =>
+                        <button key={genre.id} className="p-2 m-1 bg-purple-400 rounded shadow-md transition duration-200 hover:scale-105 hover:shadow-purple-300 font-semibold italic" onClick={() => navigate(`${genre.id}`)}>
+                            {genre.title}
+                        </button>)}
+                </div>
+            </div>
+        </>
     )
 }
 
