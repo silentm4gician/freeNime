@@ -2,10 +2,10 @@
 this project was build using the [consumet-api](https://github.com/consumet/api.consumet.org) 
 
 ## ScreenShots
-![image](https://github.com/silentm4gician/freeNime/assets/112287756/77c631ea-daa3-43a7-b11a-52ea49d8c18d)
-![image](https://github.com/silentm4gician/freeNime/assets/112287756/9a167771-2729-4c88-9c32-e4199c1f7634)
-
-
+### main page
+![image](https://github.com/user-attachments/assets/8ea2463d-1a48-48c4-bf21-bbd57c0d16f3)
+### watch page
+![image](https://github.com/user-attachments/assets/0e9359c1-cf9a-4431-a60a-833a55ff0b3f)
 
 ### WebSite
 [Check the site](https://freenime.netlify.app/ "freeNime")
@@ -14,7 +14,7 @@ this project was build using the [consumet-api](https://github.com/consumet/api.
 - Add user authentication
 - Filter and order episodes
 - Add toWatch list
-- migrate to NextJs with Tailwind
+- migrate to Tailwind ✔️
 
 ### Contact
 leandroGonzalezMat@gmail.com
