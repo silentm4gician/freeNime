@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"
 const Genres = () => {
     const list = useFetch('genre/list')
     const navigate = useNavigate()
+    const title = `genre list - freeNime`
+    document.title = title
 
     return (
         <>

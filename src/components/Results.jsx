@@ -7,6 +7,8 @@ import usePages from "../hooks/usePages"
 const Results = () => {
     const { search } = useParams()
     const data = usePages(`${search}?page=`)
+    const title = `${search} results - freeNime`
+    document.title = title
 
     return (
         <div className="container">

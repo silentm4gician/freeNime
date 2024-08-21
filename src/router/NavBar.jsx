@@ -32,7 +32,7 @@ const NavBar = () => {
               <span className="hover:text-purple-300">home</span>
             </Nav.Link>
             <Nav.Link href="/top">
-              <span className="hover:text-purple-300">top airing</span></Nav.Link>
+              <span className="hover:text-purple-300">popular</span></Nav.Link>
             <Nav.Link href="/movies">
               <span className="hover:text-purple-300">movies</span></Nav.Link>
             <Nav.Link href="/genres">

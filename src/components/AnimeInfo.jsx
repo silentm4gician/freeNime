@@ -14,7 +14,9 @@ const AnimeInfo = () => {
   const navigate = useNavigate()
   const { endIndex, setEndIndex } = useContext(Context)
   const cut = anime?.episodes.slice(0, endIndex)
-
+  const title = `${anime?.title} - freeNime`
+  document.title = title
+  
   const showMore = () => {
     anime?.totalEpisodes > 300
       ? setEndIndex(endIndex + 250)

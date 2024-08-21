@@ -8,6 +8,8 @@ const Watch = () => {
     const { epID } = useParams()
     const episode = useEpisode(epID, watching)
     const navigate = useNavigate()
+    const title = `${episode?.title} - freeNime`
+    document.title = title
 
     const prev = () => {
         navigate(`/watch/${episode.prev}`)

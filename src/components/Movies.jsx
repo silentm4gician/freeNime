@@ -5,6 +5,8 @@ import usePages from "../hooks/usePages"
 
 const Movies = () => {
     const data = usePages('movies?page=')
+    const title = `movies - freeNime`
+    document.title = title
 
     return (
         <div className="container">

@@ -8,6 +8,8 @@ const Genre = () =>
 {
     const {genreID} = useParams()
     const data = usePages(`genre/${genreID}?page=`)
+    const title = `${genreID} - freeNime`
+    document.title = title
     
 
     return (
