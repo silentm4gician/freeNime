@@ -5,12 +5,32 @@ import { Loader2 } from "lucide-react";
 async function getTrendingAnime() {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/anime/gogoanime/top-airing`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/anime/gogoanime/top-airing`,
+      {
+        // Añade estas opciones
+        cache: "no-store", // Deshabilita el caché para esta solicitud
+        next: {
+          revalidate: 0, // Fuerza a refrescar en cada solicitud
+        },
+      }
     );
-    if (!response.ok) throw new Error("Failed to fetch trending anime");
+
+    // Añade más logging
+    if (!response.ok) {
+      console.error("Detalles de la respuesta:", {
+        status: response.status,
+        statusText: response.statusText,
+        url: response.url,
+      });
+      throw new Error("Failed to fetch trending anime");
+    }
+
     return response.json();
   } catch (error) {
-    console.error("Error fetching trending anime:", error);
+    console.error("Error detallado al obtener anime trending:", {
+      message: error.message,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/anime/gogoanime/top-airing`,
+    });
     return { results: [] };
   }
 }
