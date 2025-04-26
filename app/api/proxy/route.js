@@ -1,70 +1,36 @@
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  let url = searchParams.get("url");
+  const url = searchParams.get("url");
 
   if (!url) {
-    return new Response("URL parameter is required", { status: 400 });
+    return new Response("Missing url parameter", { status: 400 });
   }
 
   try {
-    // Decodificar la URL completamente y remover referencias al proxy
-    while (url.includes("%")) {
-      const prevUrl = url;
-      url = decodeURIComponent(url);
-      if (prevUrl === url) break;
-    }
-
-    // Remover cualquier referencia previa al proxy
-    if (url.includes("/api/proxy?url=")) {
-      url = url.split("/api/proxy?url=").pop();
-    }
-
     const response = await fetch(url, {
       headers: {
-        Origin: "null",
-        Referer: new URL(url).origin,
-        "User-Agent": request.headers.get("user-agent") || "Mozilla/5.0",
+        Origin: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
       },
     });
 
-    if (!response.ok) {
-      console.error(`Proxy error: ${response.status} ${response.statusText}`);
-      return new Response(
-        `Proxy error: ${response.status} ${response.statusText}`,
-        {
-          status: response.status,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      );
-    }
-
-    const headers = new Headers({
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type":
-        response.headers.get("content-type") || "application/vnd.apple.mpegurl",
-      "Cache-Control": "no-cache",
+    // Forward all headers from the original response
+    const headers = new Headers();
+    response.headers.forEach((value, key) => {
+      headers.set(key, value);
     });
 
-    const contentType = response.headers.get("content-type");
-    if (contentType && contentType.includes("mpegurl")) {
-      const text = await response.text();
-      return new Response(text, { headers });
-    }
+    // Add CORS headers
+    headers.set("Access-Control-Allow-Origin", "*");
 
-    return new Response(response.body, {
-      headers,
+    // Get the response body as an array buffer
+    const data = await response.arrayBuffer();
+
+    return new Response(data, {
       status: response.status,
-      statusText: response.statusText,
+      headers,
     });
   } catch (error) {
     console.error("Proxy error:", error);
-    return new Response("Error fetching content: " + error.message, {
-      status: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
+    return new Response(`Proxy error: ${error.message}`, { status: 500 });
   }
 }
