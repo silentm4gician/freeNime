@@ -49,46 +49,46 @@ export default function VideoPlayer({
 
     let hls;
 
-    // Check if HLS is supported
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Native HLS support
-      video.src = sources[0].url;
-    } else if (Hls.isSupported()) {
-      // HLS.js fallback
-      hls = new Hls();
-      hls.loadSource(sources[0].url);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        // Video ready to play
-      });
-    }
-
-    // Function to proxy the URL
-    // const proxyUrl = (url) => {
-    //   return `/api/proxy?url=${encodeURIComponent(url)}`;
-    // };
-
     // // Check if HLS is supported
     // if (video.canPlayType("application/vnd.apple.mpegurl")) {
     //   // Native HLS support
-    //   video.src = proxyUrl(sources[0].url);
+    //   video.src = sources[0].url;
     // } else if (Hls.isSupported()) {
     //   // HLS.js fallback
-    //   hls = new Hls({
-    //     // Add HLS.js configuration options
-    //     xhrSetup: function (xhr, url) {
-    //       // Use relative URLs for same-origin requests, proxy for cross-origin
-    //       if (url.startsWith("http")) {
-    //         xhr.open("GET", proxyUrl(url), true);
-    //       }
-    //     },
-    //   });
+    //   hls = new Hls();
     //   hls.loadSource(sources[0].url);
     //   hls.attachMedia(video);
     //   hls.on(Hls.Events.MANIFEST_PARSED, () => {
     //     // Video ready to play
     //   });
     // }
+
+    // Function to proxy the URL
+    const proxyUrl = (url) => {
+      return `/api/proxy?url=${encodeURIComponent(url)}`;
+    };
+
+    // Check if HLS is supported
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Native HLS support
+      video.src = proxyUrl(sources[0].url);
+    } else if (Hls.isSupported()) {
+      // HLS.js fallback
+      hls = new Hls({
+        // Add HLS.js configuration options
+        xhrSetup: function (xhr, url) {
+          // Use relative URLs for same-origin requests, proxy for cross-origin
+          if (url.startsWith("http")) {
+            xhr.open("GET", proxyUrl(url), true);
+          }
+        },
+      });
+      hls.loadSource(sources[0].url);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        // Video ready to play
+      });
+    }
 
     // Add subtitle tracks
     if (tracks && tracks.length > 0) {
