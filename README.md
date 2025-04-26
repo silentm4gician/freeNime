@@ -11,7 +11,7 @@ this project was build using the [consumet-api](https://github.com/consumet/api.
 ![image](https://github.com/user-attachments/assets/de68d5fb-dde2-4d5c-a471-e7fb785851ad)
 
 ### WebSite
-[Check the site](https://freenime.netlify.app/ "freeNime")
+[Check the site](https://free-nime.vercel.app "freeNime")
 
 ## ToDo
 - Add user authentication
