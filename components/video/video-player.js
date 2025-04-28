@@ -49,74 +49,76 @@ export default function VideoPlayer({
 
     let hls;
 
-    // // Check if HLS is supported
-    // if (video.canPlayType("application/vnd.apple.mpegurl")) {
-    //   // Native HLS support
-    //   video.src = sources[0].url;
-    // } else if (Hls.isSupported()) {
-    //   // HLS.js fallback
-    //   hls = new Hls();
-    //   hls.loadSource(sources[0].url);
-    //   hls.attachMedia(video);
-    //   hls.on(Hls.Events.MANIFEST_PARSED, () => {
-    //     // Video ready to play
-    //   });
-    // }
-
-    // Function to proxy the URL
     const proxyUrl = (url) => {
+      if (url.includes("/api/proxy?url=")) {
+        return url;
+      }
       return `/api/proxy?url=${encodeURIComponent(url)}`;
     };
 
-    // Check if HLS is supported
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Native HLS support
-      video.src = proxyUrl(sources[0].url);
-    } else if (Hls.isSupported()) {
-      // HLS.js fallback
+    const subtitleUrl = (url) => {
+      if (url.includes("/api/subtitle?url=")) {
+        return url;
+      }
+      return `/api/subtitle?url=${encodeURIComponent(url)}`;
+    };
+
+    // Initialize HLS
+    if (Hls.isSupported()) {
       hls = new Hls({
-        // Add HLS.js configuration options
-        xhrSetup: function (xhr, url) {
-          // Use relative URLs for same-origin requests, proxy for cross-origin
-          if (url.startsWith("http")) {
-            xhr.open("GET", proxyUrl(url), true);
+        xhrSetup: (xhr, url) => {
+          let finalUrl = url;
+
+          if (!url.startsWith("/api/proxy?url=")) {
+            if (url.startsWith("http")) {
+              finalUrl = proxyUrl(url);
+            } else {
+              const baseUrl = new URL(sources[0].url).origin;
+              const absoluteUrl = new URL(url, baseUrl).toString();
+              finalUrl = proxyUrl(absoluteUrl);
+            }
           }
+
+          xhr.open("GET", finalUrl, true);
         },
       });
-      hls.loadSource(sources[0].url);
+
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        // Video ready to play
-      });
+      hls.loadSource(proxyUrl(sources[0].url));
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = proxyUrl(sources[0].url);
     }
+
+    // Clean previous tracks
+    while (video.firstChild) {
+      video.removeChild(video.firstChild);
+    }
+
+    // Add "Off" option
+    const offTrack = document.createElement("track");
+    offTrack.kind = "subtitles";
+    offTrack.label = "Off";
+    offTrack.srclang = "off";
+    offTrack.default = true;
+    video.appendChild(offTrack);
 
     // Add subtitle tracks
     if (tracks && tracks.length > 0) {
-      // Remove existing tracks
-      while (video.firstChild) {
-        video.removeChild(video.firstChild);
-      }
-
-      // Add "Off" option
-      const offTrack = document.createElement("track");
-      offTrack.kind = "subtitles";
-      offTrack.label = "Off";
-      offTrack.srclang = "off";
-      offTrack.default = true;
-      video.appendChild(offTrack);
-
-      // Add subtitle tracks
       tracks.forEach((track) => {
         if (track.kind === "captions" || track.kind === "subtitles") {
           const trackElement = document.createElement("track");
           trackElement.kind = track.kind;
           trackElement.label = track.label;
           trackElement.srclang = track.label.toLowerCase();
-          trackElement.src = track.file;
+
+          // 💥 Aquí proxyamos el src también
+          trackElement.src = subtitleUrl(track.file);
+
           if (track.default) {
             trackElement.default = true;
             setSelectedSubtitle(track.label.toLowerCase());
           }
+
           video.appendChild(trackElement);
         }
       });
@@ -565,7 +567,7 @@ export default function VideoPlayer({
             </div>
 
             {/* Skip 10s Button */}
-            <button
+            {/* <button
               className="text-white hover:text-purple-400 transition-colors"
               onClick={(e) => {
                 e.stopPropagation();
@@ -576,12 +578,12 @@ export default function VideoPlayer({
               }}
             >
               <SkipForward size={20} />
-            </button>
+            </button> */}
 
             {/* Settings Button */}
-            <button className="text-white hover:text-purple-400 transition-colors">
+            {/* <button className="text-white hover:text-purple-400 transition-colors">
               <Settings size={20} />
-            </button>
+            </button> */}
 
             {/* Fullscreen Button */}
             <button

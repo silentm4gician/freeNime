@@ -47,7 +47,7 @@ export default async function WatchPage({ params }) {
 
   // Fetch episode sources
   const sourcesResponse = await fetch(
-    `${baseURL}/episode/sources?animeEpisodeId=${currentEpisode.episodeId}?server=hd-2`,
+    `${baseURL}/episode/sources?animeEpisodeId=${currentEpisode.episodeId}&server=hd-2`,
     { next: { revalidate: 3600 } }
   );
 
