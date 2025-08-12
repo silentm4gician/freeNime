@@ -23,7 +23,7 @@ export default async function AnimePage({ params }) {
 
   const data = await response.json();
 
-  if (!data.success || !data.data.anime) {
+  if (data.status !== 200 || !data.data.anime) {
     notFound();
   }
 
@@ -35,7 +35,7 @@ export default async function AnimePage({ params }) {
   let episodesData = null;
   if (episodesResponse.ok) {
     const episodesJson = await episodesResponse.json();
-    if (episodesJson.success) {
+    if (episodesJson.status === 200) {
       episodesData = episodesJson.data;
     }
   }

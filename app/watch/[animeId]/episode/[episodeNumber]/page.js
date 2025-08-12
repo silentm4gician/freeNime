@@ -19,7 +19,7 @@ export default async function WatchPage({ params }) {
 
   const animeData = await animeResponse.json();
 
-  if (!animeData.success || !animeData.data.anime) {
+  if (animeData.status != 200 || !animeData.data.anime) {
     notFound();
   }
 
@@ -31,7 +31,7 @@ export default async function WatchPage({ params }) {
   let episodesData = null;
   if (episodesResponse.ok) {
     const episodesJson = await episodesResponse.json();
-    if (episodesJson.success) {
+    if (episodesJson.status === 200) {
       episodesData = episodesJson.data;
     }
   }
@@ -54,7 +54,7 @@ export default async function WatchPage({ params }) {
   let sourcesData = null;
   if (sourcesResponse.ok) {
     const sourcesJson = await sourcesResponse.json();
-    if (sourcesJson.success) {
+    if (sourcesJson.status === 200) {
       sourcesData = sourcesJson.data;
     }
   }

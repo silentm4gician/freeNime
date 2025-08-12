@@ -29,7 +29,7 @@ export default async function SchedulePage({ searchParams }) {
       const data = await response.json();
       return {
         date: day,
-        animes: data.success ? data.data.scheduledAnimes : [],
+        animes: data.status == 200 ? data.data.scheduledAnimes : [],
       };
     })
   );

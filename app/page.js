@@ -11,7 +11,7 @@ export default async function Home() {
   });
   const data = await response.json();
 
-  if (!data.success) {
+  if (data.status !== 200) {
     return <div>Failed to load data</div>;
   }
 
