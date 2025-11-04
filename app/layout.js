@@ -1,39 +1,36 @@
-import { Inter } from "next/font/google";
+import Footer from "../components/Footer";
 import "./globals.css";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
-  title: "FreeNime - Watch Anime Online",
-  description: "Watch your favorite anime shows",
+  title: "Freenime - Anime gratis en español",
+  description: "Anime gratis en español",
   icons: {
     icon: "/dmgicon.png",
   },
-  keywords: [
-    "anime",
-    "streaming",
-    "watch anime",
-    "anime shows",
-    "anime movies",
-  ],
-  authors: [
-    {
-      name: "silentM4gician",
-      url: "https://github.com/silentm4gician",
-    },
-  ],
+  openGraph: {
+    title: "Freenime - Anime gratis en español",
+    description: "Anime gratis en español",
+    type: "website",
+    locale: "es_ES",
+    siteName: "Freenime",
+    images: [
+      {
+        url: "https://free-nime.vercel.app/dmgicon.png",
+        width: 1200,
+        height: 630,
+        alt: "Freenime - Anime gratis en español",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} bg-gray-950 text-white min-h-screen`}
-      >
+    <html lang="es">
+      <body className=" antialiased">
         <Navbar />
-        {children}
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

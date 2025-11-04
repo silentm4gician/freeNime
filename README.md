@@ -1,5 +1,5 @@
 # freeNime
-this project was build using the [consumet-api](https://github.com/consumet/api.consumet.org) 
+esta rama usa mi propia API [monoschinos](https://github.com/silentm4gician/mch-scrapper) 
 
 ## ScreenShots
 ### main page
@@ -11,15 +11,17 @@ this project was build using the [consumet-api](https://github.com/consumet/api.
 ![image](https://github.com/user-attachments/assets/de68d5fb-dde2-4d5c-a471-e7fb785851ad)
 
 ### WebSite
-[Check the site](https://free-nime.vercel.app "freeNime")
+[Visitar sitio web](https://free-nime.vercel.app "freeNime")
 
 ## ToDo
-- Add user authentication
-- Filter and order episodes
-- Add toWatch list
-- Rebuild with next ✔️
-- Fix bugs in anime info page
+- Aniadir sistema de Auth
+- Aniadir sistema de favoritos
+- Aniadir sistema de historial
+- Mejorar la API
 
-### Contact
-feel free to contact me
+### Contacto
+si quieres ayudarme o tienes alguna sugerencia, no dudes en contactarme
 leandroGonzalezMat@gmail.com
+
+### License
+MIT License

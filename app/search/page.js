@@ -1,99 +1,123 @@
-import { notFound } from "next/navigation";
-import SearchResults from "../../components/search/search-results";
-import PopularAnime from "../../components/search/popular-anime";
-import SearchFilters from "../../components/search/search-filters";
+"use client";
 
-export default async function SearchPage({ searchParams }) {
-  const { q } = await searchParams;
-  const { page } = (await searchParams) || "1";
-  const params = await searchParams;
-  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+import { useSearchParams } from "next/navigation";
+import { useAnimeAPI } from "@/hooks/useAnimeAPI";
+import { useState, useEffect } from "react";
+import SectionTitle from "@/components/SectionTitle";
+import AnimeGrid from "@/components/AnimeGrid";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Search, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-  if (!q?.trim()) {
-    notFound();
-  }
+export default function SearchPage() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const queryParam = searchParams.get("q") || "";
 
-  // Build the API URL with all search parameters
-  let apiUrl = `${baseURL}/search?q=${encodeURIComponent(q)}&page=${page}`;
+  const [searchQuery, setSearchQuery] = useState(queryParam);
+  const [activeQuery, setActiveQuery] = useState(queryParam);
 
-  // Add all other search parameters if they exist
-  const validParams = [
-    "genres",
-    "type",
-    "sort",
-    "season",
-    "language",
-    "status",
-    "rated",
-    "start_date",
-    "end_date",
-    "score",
-  ];
+  const { data: searchData, loading: searchLoading } = useAnimeAPI(
+    activeQuery ? `/search?q=${encodeURIComponent(activeQuery)}` : null
+  );
 
-  validParams.forEach((param) => {
-    if (params[param]) {
-      apiUrl += `&${param}=${encodeURIComponent(params[param])}`;
+  useEffect(() => {
+    setSearchQuery(queryParam);
+    setActiveQuery(queryParam);
+  }, [queryParam]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setActiveQuery(searchQuery);
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
-  });
+  };
 
-  // Fetch search results from API
-  const response = await fetch(apiUrl, {
-    next: { revalidate: 3600 },
-  });
+  const clearSearch = () => {
+    setSearchQuery("");
+    setActiveQuery("");
+    router.push("/search");
+  };
 
-  if (!response.ok) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-white mb-4">Search Error</h1>
-        <p className="text-gray-400">
-          Sorry, we encountered an error while searching. Please try again
-          later.
-        </p>
-      </div>
-    );
-  }
-
-  const data = await response.json();
-
-  const {
-    animes,
-    mostPopularAnimes,
-    searchQuery,
-    totalPages,
-    currentPage,
-    searchFilters,
-  } = data.data;
+  const results = searchData?.results || searchData || [];
 
   return (
-    <main className="min-h-screen bg-gray-950 py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar with filters */}
-          <div className="lg:col-span-1">
-            <SearchFilters />
+    <div className="min-h-screen pt-16 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Search Header */}
+        <div className="mb-8">
+          <SectionTitle>Buscar anime</SectionTitle>
 
-            {/* Popular Anime Section */}
-            {mostPopularAnimes && mostPopularAnimes.length > 0 && (
-              <div className="mt-8">
-                <PopularAnime animes={mostPopularAnimes} />
-              </div>
-            )}
-          </div>
-
-          {/* Search Results */}
-          <div className="lg:col-span-3">
-            {q && (
-              <SearchResults
-                animes={animes}
-                currentPage={currentPage}
-                totalPages={totalPages}
-                query={searchQuery}
-                searchParams={params}
+          {/* Search Bar */}
+          <form onSubmit={handleSearch} className="flex gap-3 mb-4">
+            <div className="relative flex-1">
+              <Input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar anime..."
+                className="pl-10 pr-10 h-12 text-base"
               />
-            )}
-          </div>
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={clearSearch}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+            <Button
+              type="submit"
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-black font-semibold cursor-pointer"
+            >
+              <Search className="w-5 h-5 mr-2" />
+              Buscar
+            </Button>
+          </form>
+
+          {/* Search Info */}
+          {activeQuery && (
+            <div className="flex items-center justify-between">
+              {searchLoading ? (
+                <p className="text-muted-foreground">Buscando...</p>
+              ) : (
+                <p className="text-muted-foreground">
+                  Encontrados{" "}
+                  <span className="font-semibold text-foreground">
+                    {results.length}
+                  </span>{" "}
+                  resultados para{" "}
+                  <span className="font-semibold text-foreground">
+                    &quot;{activeQuery}&quot;
+                  </span>
+                </p>
+              )}
+            </div>
+          )}
         </div>
+
+        {/* Results */}
+        {!activeQuery && !searchLoading ? (
+          <div className="text-center py-16">
+            <Search className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-foreground mb-2">
+              Buscar anime
+            </h2>
+            <p className="text-muted-foreground">
+              Introduce un titulo, genero o keyword para encontrar tu anime
+              favorito
+            </p>
+          </div>
+        ) : (
+          <AnimeGrid animes={results} loading={searchLoading} columns={6} />
+        )}
       </div>
-    </main>
+    </div>
   );
 }
