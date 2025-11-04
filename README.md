@@ -3,12 +3,14 @@ esta rama usa mi propia API [monoschinos](https://github.com/silentm4gician/mch-
 
 ## ScreenShots
 ### main page
-![image](https://github.com/user-attachments/assets/d756ae56-f490-4703-9631-1ecb9870c2f0)
+<img width="1876" height="1096" alt="free-nime-ye0t99w4u-silentm4gicians-projects vercel app_" src="https://github.com/user-attachments/assets/9822b0a1-c3ad-485d-b0e6-6bb457ea5668" />
+
 ### watch page
-![image](https://github.com/user-attachments/assets/f3de74ae-5936-4ee1-94a9-733138984d0e)
+<img width="1537" height="1197" alt="free-nime-ye0t99w4u-silentm4gicians-projects vercel app_anime_tu-bian-yingxiong-x (1)" src="https://github.com/user-attachments/assets/1f35e151-cbf1-4780-b33c-b81fc5bb820d" />
+
 ### anime info
-![image](https://github.com/user-attachments/assets/835f07a6-512f-436f-bd52-1b66a9da40fe)
-![image](https://github.com/user-attachments/assets/de68d5fb-dde2-4d5c-a471-e7fb785851ad)
+<img width="1554" height="1179" alt="free-nime-ye0t99w4u-silentm4gicians-projects vercel app_anime_tu-bian-yingxiong-x" src="https://github.com/user-attachments/assets/242842b1-6dff-4b69-9dfc-94b114e0a77d" />
+
 
 ### WebSite
 [Visitar sitio web](https://free-nime.vercel.app "freeNime")
